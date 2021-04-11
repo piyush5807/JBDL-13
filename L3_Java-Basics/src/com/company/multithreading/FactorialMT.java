@@ -8,7 +8,9 @@ public class FactorialMT {
 
     public static void main(String[] args) {
 
-        List<Integer> numbers = Arrays.asList(45000, 34000, 23300, 56000, 10000, 45000, 70000, 40000);
+        // Thrashing - thread is context switched a lot that it cannot perform the basic operation
+
+        List<Integer> numbers = Arrays.asList(45000, 34000, 23300, 560000, 100000, 45000, 700000, 40000);
 
         MyThreadOuter[] threadOuters = new MyThreadOuter[numbers.size()];
 
@@ -20,13 +22,26 @@ public class FactorialMT {
             threadOuters[i].start();
         });
 
-        IntStream.range(0, numbers.size()).forEach(i -> {
+        Arrays.stream(threadOuters).forEach(x -> {
             try {
-                threadOuters[i].join();
+                x.join();
+                System.out.println("for number - " + x.num + ", the result is " + x.result);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
+
+//        Arrays.stream(threadOuters).forEach(x -> {
+//            System.out.println("for number - " + x.num + ", the result is " + x.result);
+//        });
+
+//        IntStream.range(0, numbers.size()).forEach(i -> {
+//            try {
+//                threadOuters[i].join();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
 
 
 //        for(int i=0;i<numbers.size();i++){
