@@ -10,6 +10,8 @@ import java.util.List;
 @Service
 public class StudentService {
 
+    // select * from student where email = 'abc@google.com'
+
     @Autowired
     StudentRepository studentRepository;
 
@@ -21,4 +23,7 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
+    public void updateStudent(String email, String name){
+        studentRepository.updateEmailFunction(email, name);
+    }
 }

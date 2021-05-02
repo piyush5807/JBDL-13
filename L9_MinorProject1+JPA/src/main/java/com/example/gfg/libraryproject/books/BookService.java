@@ -27,4 +27,8 @@ public class BookService {
     public Book getBookById(int bookId){
         return bookRepository.findById(bookId).orElse(null);
     }
+
+    public List<Book> getBookByName(String name){
+        return bookRepository.getBookByNameUsingSQL(name);
+    }
 }

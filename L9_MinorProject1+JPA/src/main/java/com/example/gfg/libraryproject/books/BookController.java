@@ -34,5 +34,9 @@ public class BookController {
         bookService.createBook(book);
     }
 
+    @GetMapping("/bookByName")
+    public List<Book> getBookByName(@RequestParam("name") String name){
+        return bookService.getBookByName(name);
+    }
 
 }

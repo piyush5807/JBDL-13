@@ -26,5 +26,10 @@ public class StudentController {
         studentService.createStudent(student);
     }
 
+    @PutMapping("/student")
+    public void updateEmail(@RequestParam("name") String name, @RequestParam("email") String email){
+
+        studentService.updateStudent(email, name);
+    }
 
 }
