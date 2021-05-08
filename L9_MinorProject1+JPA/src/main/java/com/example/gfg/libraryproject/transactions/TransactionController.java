@@ -17,25 +17,25 @@ public class TransactionController {
     TransactionService transactionService;
 
     @PostMapping("/issue")
-    public void issueBook(@RequestParam("student_id") int student_id,
-                          @RequestParam("book_id") int book_id){
+    public String issueBook(@RequestParam("student_id") int student_id,
+                          @RequestParam("book_id") int book_id) throws Exception {
 
 
         // update book table with the given student object
         // make an entry in the transaction table also
 
-        transactionService.issueBook(book_id, student_id);
+        return "Your transaction succeeded, here is the transactionId" + transactionService.issueBook(book_id, student_id);
     }
 
 
     @PostMapping("/return")
-    public void returnBook(@RequestParam("student_id") int student_id,
-                           @RequestParam("book_id") int book_id){
+    public String returnBook(@RequestParam("student_id") int student_id,
+                           @RequestParam("book_id") int book_id) throws Exception {
 
         // update book table with student as null
         // make an entry in the transaction table
 
-        transactionService.returnBook(book_id, student_id);
+        return "Your transaction succeeded, here is the transactionId " + transactionService.returnBook(book_id, student_id);
     }
 
     // CSV file which contains the list of transactions for a particular user

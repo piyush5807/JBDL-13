@@ -31,4 +31,8 @@ public class BookService {
     public List<Book> getBookByName(String name){
         return bookRepository.getBookByNameUsingSQL(name);
     }
+
+//    public void updateBook(Book book){
+//        bookRepository.updateBook(book);
+//    }
 }

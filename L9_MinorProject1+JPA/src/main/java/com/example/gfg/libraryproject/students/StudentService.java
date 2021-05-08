@@ -26,4 +26,8 @@ public class StudentService {
     public void updateStudent(String email, String name){
         studentRepository.updateEmailFunction(email, name);
     }
+
+    public Student getStudentById(int studentId){
+        return studentRepository.findById(studentId).orElse(null);
+    }
 }
