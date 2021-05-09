@@ -19,3 +19,11 @@ Spring Basics
 MySQL
 1. Download - https://www.mysql.com/downloads/
 2. Resources - https://www.mysqltutorial.org/
+
+MongoDB
+1. Download - https://www.mongodb.com/try/download/shell
+2. Resources - https://docs.mongodb.com/
+
+Redis
+1. Download - https://redislabs.com/ebook/appendix-a/a-3-installing-on-windows/a-3-2-installing-redis-on-window/ (windows) , https://redis.io/download
+2. Resources - https://redis.io/
