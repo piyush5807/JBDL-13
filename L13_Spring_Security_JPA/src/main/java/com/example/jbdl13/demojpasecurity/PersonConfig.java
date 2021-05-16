@@ -40,7 +40,9 @@ public class PersonConfig extends WebSecurityConfigurerAdapter {
             }else if(){
          */
 
-        http.authorizeRequests()
+        http.
+                csrf().disable()
+                .authorizeRequests()
                 .antMatchers("/user/**").hasAuthority(PERSON_AUTHORITY)
                 .antMatchers("/admin/**").hasAuthority(ADMIN_PERSON_AUTHORITY)
                 .antMatchers("/**").permitAll()

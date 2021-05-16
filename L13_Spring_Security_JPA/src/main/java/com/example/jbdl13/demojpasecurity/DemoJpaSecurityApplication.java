@@ -21,27 +21,27 @@ public class DemoJpaSecurityApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-		MyUser user1 = MyUser.builder()
-				.username("john")
-				.password(encoder.encode("john123"))
-				.authorities("PERSON")
-				.build();
-
-		MyUser user2 = MyUser.builder()
-				.username("peter")
-				.password(encoder.encode("peter123"))
-				.authorities("PERSON_ADMIN")
-				.build();
-
-		MyUser user3 = MyUser.builder()
-				.username("william")
-				.password(encoder.encode("william123"))
-				.authorities("PERSON_ADMIN:PERSON")
-				.build();
-
-		userRepository.saveAll(Arrays.asList(user1, user2, user3));
+//		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//
+//		MyUser user1 = MyUser.builder()
+//				.username("john")
+//				.password(encoder.encode("john123"))
+//				.authorities("PERSON")
+//				.build();
+//
+//		MyUser user2 = MyUser.builder()
+//				.username("peter")
+//				.password(encoder.encode("peter123"))
+//				.authorities("PERSON_ADMIN")
+//				.build();
+//
+//		MyUser user3 = MyUser.builder()
+//				.username("william")
+//				.password(encoder.encode("william123"))
+//				.authorities("PERSON_ADMIN:PERSON")
+//				.build();
+//
+//		userRepository.saveAll(Arrays.asList(user1, user2, user3));
 
 	}
 }
