@@ -2,16 +2,15 @@ package com.example.jbdl13.majorproject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
-import org.springframework.kafka.core.*;
+import org.springframework.kafka.core.ConsumerFactory;
+import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Properties;
 
@@ -53,6 +52,10 @@ public class NotificationConfig {
         javaMailSender.setPort(587);
         javaMailSender.setUsername("gfg.ewallet@gmail.com");
         javaMailSender.setPassword("gfg123@JBDL13");
+
+        Properties properties = javaMailSender.getJavaMailProperties();
+        properties.put("mail.smtp.starttls.enable",true);
+        properties.put("mail.debug", true);
 
         return javaMailSender;
     }
